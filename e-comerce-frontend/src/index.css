@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+
+  background: #ffffff;
+}
+
+img {
+  width: 100%;
+  object-fit: contain;
+}
