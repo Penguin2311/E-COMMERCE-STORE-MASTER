@@ -1,7 +1,6 @@
 import "./Navbar.css";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useMemo } from "react";
 import { logout } from "../utils/localstorage";
 import { setInitialState } from "../redux/actions/userAction";
 
@@ -28,7 +27,9 @@ const Navbar = ({ click }) => {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
+        <Link to="/">
         <h2>E-commerce</h2>
+        </Link>
       </div>
 
       <ul className="navbar__links">
@@ -38,12 +39,6 @@ const Navbar = ({ click }) => {
             <span>
               Cart <span className="cartlogo__badge">{getCartCount()}</span>
             </span>
-          </Link>
-        </li>
-
-        <li>
-          <Link to="/" className="nav-buttons">
-            Shop
           </Link>
         </li>
 
@@ -61,12 +56,6 @@ const Navbar = ({ click }) => {
           </li>
         )}
       </ul>
-
-      <div className="hamburger__menu" onClick={click}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
     </nav>
   );
 };

@@ -1,4 +1,11 @@
 .app {
   height: 80vh;
+  flex: 1; 
   /* display: flex; */
+}
+
+.screen {  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
 }

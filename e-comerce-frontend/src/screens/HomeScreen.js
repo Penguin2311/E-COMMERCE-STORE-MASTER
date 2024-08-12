@@ -2,23 +2,25 @@ import "./HomeScreen.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// Components
+// Import the Product component
 import Product from "../components/Product";
 
-//Actions
-import { getProducts as listProducts } from "../redux/actions/productActions";
+// Import action creators
+import { getProducts as fetchProducts } from "../redux/actions/productActions";
 import { setUserDeatils } from "../redux/actions/userAction";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
-  const getProducts = useSelector((state) => state.getProducts);
-  const { products, loading, error } = getProducts;
+  // Retrieve products and loading/error states from the Redux store
+  const { products, loading, error } = useSelector((state) => state.getProducts);
 
+  // Fetch products when the component mounts
   useEffect(() => {
-    dispatch(listProducts());
+    dispatch(fetchProducts());
   }, [dispatch]);
 
+  // Set user details on component mount
   useEffect(() => {
     dispatch(setUserDeatils());
   }, [dispatch]);

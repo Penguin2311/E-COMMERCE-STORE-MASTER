@@ -1,22 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css'; // Importing the main stylesheet
+import App from './App'; // Importing the main App component
 
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import { Provider } from 'react-redux'; // Importing the Provider component from react-redux
+import store from './redux/store'; // Importing the Redux store
 
+// Rendering the root of the React app and wrapping it with the Redux Provider
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
+  <Provider store={store}> {/* Wrapping the App with Provider to give it access to the Redux store */}
+    <React.StrictMode> {/* Enabling strict mode to catch potential issues in the app */}
+      <App /> {/* Rendering the main App component */}
     </React.StrictMode>
   </Provider>,
-  document.getElementById("root")
+  document.getElementById('root') // Targeting the HTML element where the app will be mounted
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
