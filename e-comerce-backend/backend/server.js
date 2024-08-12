@@ -36,16 +36,24 @@ connectDB()
 
 const app = express();
 
+// Middleware to parse JSON bodies
 app.use(express.json());
+
+// Middleware to enable CORS (Cross-Origin Resource Sharing)
 app.use(cors());
 
+// Basic route to check if the API is running
 app.get("/", (req, res) => {
-  res.json({ message: "API running..." });
+  res.json({ message: "API is operational" });
 });
 
+// Define API routes
 app.use("/api/products", productRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/cart", cartRoutes);
 
+// Set the port from environment variable or default to 3000
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Start the server and listen on the specified port
+app.listen(PORT, () => console.log(`Server is up and running on port ${PORT}`));
