@@ -1,6 +1,11 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {JWT} = require('../config/config')
+
+const JWT = {
+  jwt: process.env.JWT_SECRET || '12345-67890-09876-54321',
+  jwtExp: '100d',
+}
+
 const checkPassword = (password, passwordHash) => {
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, passwordHash, (err, same) => {
@@ -11,7 +16,7 @@ const checkPassword = (password, passwordHash) => {
       resolve(same)
     })
   })
-}
+} 
 
 const newToken = user => {
   return jwt.sign({id: user._id}, JWT.jwt, {

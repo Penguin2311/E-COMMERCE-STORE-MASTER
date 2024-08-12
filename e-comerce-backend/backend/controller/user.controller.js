@@ -2,7 +2,7 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const User = require('../models/User')
 const {sendResponseError} = require('../middleware/middleware')
-const {checkPassword, newToken} = require('../utils/utility.function')
+const {checkPassword, newToken} = require('../middleware/middleware')
 
 const signUpUser = async (req, res) => {
   const {email, fullName, password} = req.body
